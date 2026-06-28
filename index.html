@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GrabToGo — Day Off & Sick Leave Policy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:#f0eeeb;color:#111827;line-height:1.65;}
+  .page{max-width:780px;margin:0 auto;background:#fff;min-height:100vh;}
+
+  /* TOPBAR */
+  .topbar{background:#e04629;color:#fff;padding:12px 40px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(224,70,41,.28);}
+  .tl{width:30px;height:30px;background:rgba(255,255,255,.2);border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;}
+  .tt{font-size:14px;font-weight:600;flex:1;}
+  .tg{font-size:11px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:2px 10px;}
+
+  /* HERO */
+  .hero{background:linear-gradient(130deg,#e04629,#a82e15);padding:44px 52px;color:#fff;position:relative;overflow:hidden;}
+  .hero::after{content:'';position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.07);}
+  .hero::before{content:'';position:absolute;left:-30px;bottom:-50px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.05);}
+  .hero-eye{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:12px;position:relative;z-index:1;}
+  .hero h1{font-size:28px;font-weight:800;line-height:1.2;margin-bottom:10px;position:relative;z-index:1;}
+  .hero p{font-size:14px;color:rgba(255,255,255,.85);max-width:500px;line-height:1.7;position:relative;z-index:1;}
+
+  /* QUICK FACTS */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:28px 52px;border-bottom:1px solid #F3F4F6;}
+  .fact{background:#fdf1ee;border-radius:14px;padding:18px;text-align:center;}
+  .fact .fnum{font-size:26px;font-weight:800;color:#e04629;line-height:1;}
+  .fact .flabel{font-size:12px;color:#6B7280;margin-top:6px;line-height:1.4;}
+
+  /* SECTION */
+  .section{padding:36px 52px;border-bottom:1px solid #F3F4F6;}
+  .section:last-of-type{border-bottom:none;}
+  .section-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+  .section-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .section-icon.cal{background:#fdf1ee;}
+  .section-icon.sick{background:#eff6ff;}
+  .section-icon.appt{background:#f0fdf4;}
+  .section-header h2{font-size:20px;font-weight:800;color:#111;}
+
+  /* POLICY LIST */
+  .policy-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .policy-list li{display:flex;gap:14px;align-items:flex-start;background:#F9FAFB;border-radius:12px;padding:14px 16px;border-left:3px solid #e04629;}
+  .policy-list.sick li{border-left-color:#2563eb;}
+  .policy-list.appt li{border-left-color:#16a34a;}
+  .policy-list li .picon{font-size:18px;flex-shrink:0;margin-top:1px;}
+  .policy-list li .ptext{font-size:14px;color:#374151;line-height:1.55;flex:1;}
+  .policy-list li .ptext strong{color:#111;font-weight:700;}
+
+  /* CALLOUT */
+  .co{border-radius:10px;padding:14px 18px;display:flex;gap:11px;align-items:flex-start;margin-top:18px;font-size:14px;line-height:1.6;}
+  .co.warn{background:#fffbeb;color:#92400e;border-left:3px solid #d97706;}
+  .co.danger{background:#fef2f2;color:#991b1b;border-left:3px solid #dc2626;}
+  .co.tip{background:#f0fdf4;color:#166534;border-left:3px solid #16a34a;}
+  .co .ci{font-size:16px;flex-shrink:0;margin-top:1px;}
+
+  /* HIGHLIGHT BLOCK for appointments */
+  .highlight-block{background:linear-gradient(130deg,#111,#1f2937);border-radius:16px;padding:24px 28px;color:#fff;margin-top:8px;}
+  .highlight-block h3{font-size:16px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .highlight-block p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:10px;}
+  .highlight-block p:last-child{margin-bottom:0;}
+  .highlight-block strong{color:#fff;}
+
+  .footer{text-align:center;padding:24px 52px;font-size:12px;color:#9CA3AF;border-top:1px solid #F3F4F6;}
+
+  @media(max-width:600px){
+    .hero,.section,.facts{padding:24px 20px;}
+    .topbar{padding:10px 16px;}
+    .tg{display:none;}
+    .hero h1{font-size:22px;}
+    .section-header h2{font-size:17px;}
+  }
+  @media print{.topbar{position:static;}.section{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="topbar">
+  <div class="tl">G</div>
+  <div class="tt">GrabToGo — Day Off & Sick Leave Policy</div>
+  <div class="tg">Team Policy · May 2026</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eye">Team Policy</div>
+  <h1>Day Off & Sick Leave Policy</h1>
+  <p>Everything you need to know about working days, weekly offs, planned leave, and sick leave at GrabToGo. Please read carefully and follow the process for requesting time off.</p>
+</div>
+
+<!-- QUICK FACTS -->
+<div class="facts">
+  <div class="fact"><div class="fnum">24</div><div class="flabel">Working days per month</div></div>
+  <div class="fact"><div class="fnum">Sunday</div><div class="flabel">Weekly off</div></div>
+  <div class="fact"><div class="fnum">2</div><div class="flabel">Extra days off per month</div></div>
+  <div class="fact"><div class="fnum">1 week</div><div class="flabel">Advance notice for planned leave</div></div>
+</div>
+
+<!-- ══════════════ DAY OFF POLICY ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon cal">📅</div>
+    <h2>Day Off Policy</h2>
+  </div>
+  <ul class="policy-list">
+    <li>
+      <span class="picon">🗓️</span>
+      <span class="ptext"><strong>Total working days:</strong> 24 days per month.</span>
+    </li>
+    <li>
+      <span class="picon">☀️</span>
+      <span class="ptext"><strong>Weekly off:</strong> Every Sunday.</span>
+    </li>
+    <li>
+      <span class="picon">➕</span>
+      <span class="ptext"><strong>Additional leave:</strong> Employees may take up to <strong>2 days off per month</strong>.</span>
+    </li>
+    <li>
+      <span class="picon">📨</span>
+      <span class="ptext"><strong>Planned day off</strong> must be informed and approved <strong>at least 1 week in advance</strong>.</span>
+    </li>
+    <li>
+      <span class="picon">📞</span>
+      <span class="ptext"><strong>Sick leave</strong> should be informed to the reporting manager <strong>as early as possible before shift start</strong>.</span>
+    </li>
+    <li>
+      <span class="picon">⚠️</span>
+      <span class="ptext"><strong>Repeated last-minute leave requests</strong> may affect scheduling and performance review.</span>
+    </li>
+  </ul>
+  <div class="co warn">
+    <div class="ci">⚠</div>
+    <div><strong>Always inform your manager.</strong> Any time off — planned or unplanned — must be communicated to your reporting manager. Do not assume a day off is approved until you hear back.</div>
+  </div>
+</div>
+
+<!-- ══════════════ SICK LEAVE POLICY ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon sick">🤒</div>
+    <h2>Sick Leave Policy</h2>
+  </div>
+  <ul class="policy-list sick">
+    <li>
+      <span class="picon">📞</span>
+      <span class="ptext">Employees must inform their <strong>reporting manager as early as possible</strong> if unable to attend work due to illness.</span>
+    </li>
+    <li>
+      <span class="picon">⏰</span>
+      <span class="ptext">Sick leave should <strong>preferably be informed before shift start time</strong>.</span>
+    </li>
+    <li>
+      <span class="picon">✅</span>
+      <span class="ptext">Up to <strong>2 sick leave days per month are paid</strong> (subject to approval).</span>
+    </li>
+    <li>
+      <span class="picon">💸</span>
+      <span class="ptext">Any sick leave <strong>exceeding 2 days per month</strong> will be considered <strong>unpaid leave</strong>.</span>
+    </li>
+    <li>
+      <span class="picon">📄</span>
+      <span class="ptext">A <strong>medical certificate may be requested</strong> for extended sick leave.</span>
+    </li>
+    <li>
+      <span class="picon">🚫</span>
+      <span class="ptext"><strong>Uninformed absence</strong> will be treated as <strong>unpaid leave</strong>.</span>
+    </li>
+  </ul>
+  <div class="co danger">
+    <div class="ci">✕</div>
+    <div><strong>Uninformed absence is unpaid.</strong> If you do not inform your manager and simply don't show up, the day will be marked as unpaid leave regardless of the reason.</div>
+  </div>
+</div>
+
+<!-- ══════════════ CUSTOMER APPOINTMENTS ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon appt">🤝</div>
+    <h2>Customer Appointments on Leave Days</h2>
+  </div>
+  <div class="highlight-block">
+    <h3>🤝 If you have appointments with customers</h3>
+    <p>If you are taking a day off or are unwell and you have <strong>scheduled appointments or visits with vendors/customers</strong>, you are responsible for making sure those appointments are not missed.</p>
+    <p><strong>You must either:</strong></p>
+    <p>• <strong>Inform the customer in advance</strong> and reschedule the appointment, OR<br>
+    • <strong>Arrange for someone else to attend on your behalf</strong> so the vendor is not left waiting.</p>
+    <p>A missed vendor appointment reflects poorly on GrabToGo and can cost us a vendor. Always close the loop before you take leave.</p>
+  </div>
+  <div class="co tip">
+    <div class="ci">✓</div>
+    <div><strong>Best practice:</strong> As soon as you know you'll be off, check your schedule for any vendor appointments that day, notify your manager, and either reschedule with the vendor or hand the visit over to a teammate.</div>
+  </div>
+</div>
+
+<!-- ══════════════ HOW TO APPLY ══════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon cal" style="background:#fdf1ee;">📝</div>
+    <h2>How to Apply for Leave</h2>
+  </div>
+  <div class="highlight-block" style="background:linear-gradient(130deg,#e04629,#a82e15);">
+    <h3>📝 Applying for leave is compulsory</h3>
+    <p><strong>Every leave — planned day off or sick leave — must be applied for through the official GrabToGo Leave Application Form.</strong> Filling this form is mandatory for all associates. A leave is not considered approved until you submit the form AND inform your reporting manager.</p>
+    <p>You must do <strong>both</strong> of the following:</p>
+    <p>1. <strong>Submit the Leave Application Form</strong> (link below)<br>
+    2. <strong>Inform your reporting manager directly</strong> (call or message) — planned leave at least 1 week in advance, sick leave as early as possible before your shift</p>
+  </div>
+  <div style="text-align:center;margin:22px 0 8px;">
+    <a href="https://forms.gle/gGGW2FxVzTurjzeh6" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#e04629;color:#fff;text-decoration:none;padding:15px 32px;border-radius:12px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(224,70,41,.25);">
+      📝 Apply for Leave Now →
+    </a>
+  </div>
+  <div style="text-align:center;font-size:13px;color:#9CA3AF;margin-bottom:8px;word-break:break-all;">
+    forms.gle/gGGW2FxVzTurjzeh6
+  </div>
+  <div class="co danger">
+    <div class="ci">✕</div>
+    <div><strong>No form + no manager approval = unpaid, uninformed absence.</strong> Simply submitting the form is not enough on its own — you must also inform your manager. Likewise, telling your manager without submitting the form is incomplete. Both steps are required for every leave.</div>
+  </div>
+  <div class="co warn">
+    <div class="ci">⚠</div>
+    <div><strong>Don't forget your customer appointments.</strong> Before your leave begins, check for any vendor/customer appointments and either reschedule with them or arrange for a teammate to cover — as explained in the section above.</div>
+  </div>
+</div>
+
+<div class="footer">
+  GrabToGo Day Off & Sick Leave Policy · Team Policy · May 2026
+</div>
+
+</div>
+</body>
+</html>
